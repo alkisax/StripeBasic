@@ -1,0 +1,55 @@
+
+import express from 'express'
+import Stripe from 'stripe'
+import cors from 'cors'
+import dotenv from 'dotenv';
+dotenv.config();
+
+const app = express()
+app.use(cors())
+app.use(express.json())
+const port = 3000
+
+const YOUR_DOMAIN = 'http://localhost:3000';
+const PRICE_ID = 'price_1RGOizEsaPshQGwVitQc09HR'
+const QUANTITY = '1'
+
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY)
+
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
+
+app.post('/checkout', async (req, res) => {
+  try {
+    const session = await stripe.checkout.sessions.create({
+      payment_method_types: ['card'],
+      line_items: [
+        {
+          // Provide the exact Price ID (for example, price_1234) of the product you want to sell
+          price: `${PRICE_ID}`,
+          quantity: `${QUANTITY}`,
+        },
+      ],
+      mode: 'payment',
+      success_url: `${YOUR_DOMAIN}/success?success=true`,
+      cancel_url: `${YOUR_DOMAIN}/cancel?canceled=true`,
+    });
+
+    return res.json(session)
+  } catch (err) {
+    console.log(err);    
+  }
+})
+
+app.get('/success', (req, res) => {
+  return res.send('success!')
+})
+
+app.get('/cancel', (req, res) => {
+  return res.send('canceled! :(')
+})
+
+app.listen(port, () => {
+  console.log(`Example app listening on http://localhost:${port}/`)
+})
