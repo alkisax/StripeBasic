@@ -19,7 +19,7 @@ app.use(express.static('dist'))
 const port = 3000
 
 // const YOUR_DOMAIN = 'http://localhost:3000';
-// const YOUR_DOMAIN = 'https://stripebasic.onrender.com'
+const YOUR_DOMAIN = 'https://stripebasic.onrender.com'
 
 
 // const PRICE_ID_050 = 'price_1RGPe4EsaPshQGwV6vXbMrhE'
