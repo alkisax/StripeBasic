@@ -6,7 +6,8 @@ import twoCoins from '../assets/two coins.jpg'
 import threeCoins from '../assets/three_coins.svg.png'
 
 const PUBLIC_STRIPE_KEY = 'pk_live_51REuM3EsaPshQGwVZxSzQyBw2SJj4CnnSxuf6yWokbg5dRVAM0WpDFrIHnlF0sqQgykl4WVxCw5gA6bhDHWeyrFE00muoS3dkU'
-const BACKEND_URL = 'http://localhost:3000';
+// const BACKEND_URL = 'http://localhost:3000';
+const BACKEND_URL = 'https://stripebasic.onrender.com';
 const PRICE_ID_050 = 'price_1RGPe4EsaPshQGwV6vXbMrhE'
 const PRICE_ID_051 = 'price_1RGkyMEsaPshQGwV7rsnw60y'
 const PRICE_ID_052 = 'price_1RGlWzEsaPshQGwVGwpZ9TSb'
@@ -26,15 +27,6 @@ const checkout = () => {
     }
   }
 
-
-  // return (
-  //   <div>
-  //     <h1>donate a few cents for test purpose</h1>
-  //     <button onClick={() => handleCheckout(`${PRICE_ID_050}`)}>Donate 0.5€</button>
-  //     <button onClick={() => handleCheckout(`${PRICE_ID_051}`)}>Donate 0.51€</button>
-  //     <button onClick={() => handleCheckout(`${PRICE_ID_052}`)}>Donate 0.52€</button>
-  //   </div>
-  // )
   return (
     <div className="container mt-5" style={{ backgroundColor: '#242424', color: 'white' }}>
       <h1 className="mb-4 text-center">Support this demo</h1>
@@ -81,3 +73,14 @@ const checkout = () => {
 }
 
 export default checkout
+
+
+
+  // return (
+  //   <div>
+  //     <h1>donate a few cents for test purpose</h1>
+  //     <button onClick={() => handleCheckout(`${PRICE_ID_050}`)}>Donate 0.5€</button>
+  //     <button onClick={() => handleCheckout(`${PRICE_ID_051}`)}>Donate 0.51€</button>
+  //     <button onClick={() => handleCheckout(`${PRICE_ID_052}`)}>Donate 0.52€</button>
+  //   </div>
+  // )

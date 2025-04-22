@@ -8,6 +8,7 @@ dotenv.config();
 const app = express()
 app.use(cors())
 app.use(express.json())
+app.use(express.static('dist'))
 const port = 3000
 
 const YOUR_DOMAIN = 'http://localhost:3000';
