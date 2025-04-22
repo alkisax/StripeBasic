@@ -11,7 +11,8 @@ app.use(express.json())
 const port = 3000
 
 const YOUR_DOMAIN = 'http://localhost:3000';
-const PRICE_ID = 'price_1RGOizEsaPshQGwVitQc09HR'
+const PRICE_ID_050 = 'price_1RGPe4EsaPshQGwV6vXbMrhE'
+const PRICE_ID_051 = 'price_1RGkyMEsaPshQGwV7rsnw60y'
 const QUANTITY = '1'
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY)
@@ -27,7 +28,7 @@ app.post('/checkout', async (req, res) => {
       line_items: [
         {
           // Provide the exact Price ID (for example, price_1234) of the product you want to sell
-          price: `${PRICE_ID}`,
+          price: `${PRICE_ID_050}`,
           quantity: `${QUANTITY}`,
         },
       ],
