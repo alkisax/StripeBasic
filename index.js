@@ -2,7 +2,8 @@
 import express from 'express'
 import Stripe from 'stripe'
 import cors from 'cors'
-import dotenv from 'dotenv';
+import dotenv from 'dotenv'
+import path from 'path'
 dotenv.config();
 
 const app = express()
