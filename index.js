@@ -18,9 +18,9 @@ const QUANTITY = '1'
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY)
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
+// app.get('/', (req, res) => {
+//   res.send('Hello World!')
+// })
 
 app.post('/checkout/:price_id', async (req, res) => {
   const price_id = req.params.price_id
