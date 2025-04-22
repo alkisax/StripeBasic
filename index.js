@@ -6,10 +6,10 @@ import dotenv from 'dotenv'
 import path from 'path'
 dotenv.config();
 
-import { fileURLToPath } from 'url'
+// import { fileURLToPath } from 'url'
 
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
+// const __filename = fileURLToPath(import.meta.url)
+// const __dirname = path.dirname(__filename)
 
 const app = express()
 app.use(cors())
@@ -30,10 +30,10 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY)
 // app.get('/', (req, res) => {
 //   res.send('Hello World!')
 // })
-app.get('/', (req, res) => {
-  // res.sendFile(path.resolve('dist/index.html'))
-  res.sendFile(path.join(__dirname, 'dist', 'index.html'))
-})
+// app.get('/', (req, res) => {
+//   // res.sendFile(path.resolve('dist/index.html'))
+//   res.sendFile(path.join(__dirname, 'dist', 'index.html'))
+// })
 
 app.post('/checkout/:price_id', async (req, res) => {
   const price_id = req.params.price_id
